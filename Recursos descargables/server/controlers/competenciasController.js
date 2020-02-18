@@ -184,39 +184,6 @@ function crearCompetencia(req, res) {
 }
 
 
-function competenciaPorGenero(req, res) {
-    let pedido = "SELECT * FROM genero";
-    con.query(pedido, function(error, resultado, fields) {
-        if (error) {
-            console.log("Error al cargar géneros", error.message);
-            return res.status(500).send(error);
-        }
-        res.send(JSON.stringify(resultado));
-    });
-}
-
-function competenciaPorDirectores(req, res) {
-    let pedido = "SELECT * FROM director";
-    con.query(pedido, function(error, resultado, fields) {
-        if (error) {
-            console.log("Error al cargar directores", error.message);
-            return res.status(500).send(error);
-        }
-        res.send(JSON.stringify(resultado));
-    });
-}
-
-function competenciaPorActores(req, res) {
-    let pedido = "SELECT * FROM actor";
-    con.query(pedido, function(error, resultado, fields) {
-        if (error) {
-            console.log("Error al cargar actores", error.message);
-            return res.status(500).send(error);
-        }
-        res.send(JSON.stringify(resultado));
-    });
-}
-
 function obtenerNombre(req, res) {
     let nombreCompetencia = req.params.id;
 
@@ -287,9 +254,6 @@ module.exports = {
     eliminarVotos: eliminarVotos,
     cargarResultados: cargarResultados,
     crearCompetencia: crearCompetencia,
-    competenciaPorGenero: competenciaPorGenero,
-    competenciaPorActores: competenciaPorActores,
-    competenciaPorDirectores: competenciaPorDirectores,
     obtenerNombre: obtenerNombre,
     eliminarCompetencia: eliminarCompetencia,
     editarCompetencia: editarCompetencia

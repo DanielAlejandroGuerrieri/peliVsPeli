@@ -3,6 +3,9 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var competenciasController = require('./controlers/competenciasController');
+var actoresController = require('./controlers/actoresController');
+var generoController = require('./controlers/generoController');
+var directoresController = require('./controlers/directoresController');
 
 var app = express();
 
@@ -30,11 +33,11 @@ app.post('/competencias/:idCompetencia/voto', competenciasController.votoPelicul
 
 app.delete('/competencias/:id/votos', competenciasController.eliminarVotos); //
 
-app.get('/generos', competenciasController.competenciaPorGenero); //
+app.get('/generos', generoController.competenciaPorGenero); //
 
-app.get('/directores', competenciasController.competenciaPorDirectores); //
+app.get('/directores', directoresController.competenciaPorDirectores); //
 
-app.get('/actores', competenciasController.competenciaPorActores); //
+app.get('/actores', actoresController.competenciaPorActores); //
 
 app.put('/competencias/:id', competenciasController.editarCompetencia);
 
